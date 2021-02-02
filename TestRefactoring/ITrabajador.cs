@@ -2,7 +2,7 @@
 {
     using System;
 
-    interface ITrabajador
+    internal interface ITrabajador
     {
         public string Nombre { get; set; }
 

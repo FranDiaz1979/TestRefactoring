@@ -2,36 +2,36 @@
 {
     using System;
 
-    class Trabajador : ITrabajador
+    internal class Trabajador : ITrabajador
     {
         private string apellido;
         private string nombre;
         private TareaFacturable tarea;
         private DateTime fechaNacimiento;
 
-        public string Nombre { get => nombre; set => nombre = value; }
-        
-        public string Apellido { get => apellido; set => apellido = value; }
+        public string Nombre { get => this.nombre; set => this.nombre = value; }
 
-        public string NombreCompleto { get => nombre + " " + apellido; }
+        public string Apellido { get => this.apellido; set => this.apellido = value; }
 
-        public TareaFacturable Tarea { get => tarea; set => tarea = value; }
+        public string NombreCompleto { get => this.nombre + " " + this.apellido; }
 
-        public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
+        public TareaFacturable Tarea { get => this.tarea; set => this.tarea = value; }
 
-        virtual public void ProcesarTareas()
+        public DateTime FechaNacimiento { get => this.fechaNacimiento; set => this.fechaNacimiento = value; }
+
+        public virtual void ProcesarTareas()
         {
-            //Código
+            // Código
         }
 
-        virtual public void ProcesarPedidos()
+        public virtual void ProcesarPedidos()
         {
-            //Código
+            // Código
         }
 
-        virtual public void ProcesarVacaciones()
+        public virtual void ProcesarVacaciones()
         {
-            //Código
+            // Código
         }
     }
 }

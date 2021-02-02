@@ -1,20 +1,20 @@
 ﻿namespace TestRefactoring
 {
-    class Freelance : Trabajador, ITrabajador
+    internal class Freelance : Trabajador, ITrabajador
     {
-        override public void ProcesarTareas()
+        public override void ProcesarTareas()
         {
-            //Código
+            // Código
         }
 
-        override public void ProcesarPedidos()
+        public override void ProcesarPedidos()
         {
-            //Código
+            // Código
         }
 
-        override public void ProcesarVacaciones()
+        public override void ProcesarVacaciones()
         {
-            //Código
+            // Código
         }
     }
 }

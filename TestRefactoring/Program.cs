@@ -2,14 +2,13 @@
 {
     using System;
 
-    class Program
+    internal class Program
     {
         /*
         1) PRUEBA .NET:
         Consigna: Optimizar el código lo máximo posible.
         Todo lo que se vea que se puede optimizar, hacerlo.
         Todos los cambios quedan a criterio del programador y se aceptan todo tipo de cambios.
-			
 
         HECHO:
         Crear solucion tipo consola
@@ -23,21 +22,20 @@
         Calcular precio de la misma forma que los otros metodos de la clase
         Clean Code: agregar metodo ProcesarTrabajador: Si se metiese en la clase, el console.Writeline iria fuera y se deberia guardar el objeto
         Dias y precio es un data clump con un metodo: calcularPrecio
-
-        TODO:
         */
 
-        static void Main()
+        private static void Main()
         {
             ProcesarTrabajador(new Empleado
             {
                 Nombre = "Carlos",
                 Apellido = "Rodriguez",
                 Comentarios = "Habla inglés perfecto",
-                Tarea = new TareaFacturable {
+                Tarea = new TareaFacturable
+                {
                     Dias = 5,
                     Precio = 25,
-                }                
+                }
             });
 
             ProcesarTrabajador(new Freelance

@@ -1,22 +1,22 @@
 ﻿namespace TestRefactoring
 {
-    class Empleado : Trabajador, ITrabajador
+    internal class Empleado : Trabajador, ITrabajador
     {
         public string Comentarios { get; set; }
 
-        override public void ProcesarTareas()
+        public override void ProcesarTareas()
         {
-            //Código
+            // Código
         }
 
-        override public void ProcesarPedidos()
+        public override void ProcesarPedidos()
         {
-            //Código
+            // Código
         }
 
-        override public void ProcesarVacaciones()
+        public override void ProcesarVacaciones()
         {
-            //Código
+            // Código
         }
     }
 }
