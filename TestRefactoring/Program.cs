@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace TestRefactoring
+﻿namespace TestRefactoring
 {
+    using System;
+
     class Program
     {
         /*
@@ -15,56 +15,48 @@ namespace TestRefactoring
         Crear solucion tipo consola
         substituir el main del proyecto por el del test
         Agregar un repositorio git local
-
-        TODO:
-        Refactorizar: 1 Interface comun para los 2 ¿ITrabajador?
+        Refactorizar: 1 Interface comun para los 2: ITrabajador
         Llevar las clases a sus archivos
         Encapsular las propiedades
+        Clase Trabajador para que Calcular precio no se repita
         Los metodos de la clase: ¿Dentro del "dominio" o fuera con algun patron? (Prefiero dentro del dominio)
         Calcular precio de la misma forma que los otros metodos de la clase
+        Clean Code: agregar metodo ProcesarTrabajador: Si se metiese en la clase, el console.Writeline iria fuera y se deberia guardar el objeto
+
+        TODO:
+        Dias y precio es un data clump con un metodo: calcularPrecio
         */
 
-        static void Main(string[] args)
+        static void Main()
         {
-            Empleado claseA = new Empleado
+            ProcesarTrabajador(new Empleado
             {
                 Nombre = "Carlos",
                 Apellido = "Rodriguez",
                 Comentarios = "Habla inglés perfecto",
-                NombreCompleto = "Carlos" + " " + "Rodriguez",
                 Dias = 5,
                 Precio = 25
-            };
+            });
 
-            claseA.ProcesarPedidos();
-            claseA.ProcesarTareas();
-
-            Console.WriteLine(claseA.NombreCompleto + ": " + claseA.CalcularPrecio());
-
-            Freelance claseB = new Freelance
+            ProcesarTrabajador(new Freelance
             {
                 Nombre = "Juan",
                 Apellido = "Pérez",
-                NombreCompleto = "Juan" + " " + "Pérez",
                 Dias = 10,
                 Precio = 50,
                 FechaNacimiento = new DateTime(1987, 7, 1)
-            };
+            });
 
-            claseB.ProcesarPedidos();
-            claseB.ProcesarTareas();
-
-            Console.WriteLine(claseA.NombreCompleto + ": " + claseB.CalcularPrecio());
-
-            Console.ReadLine();
+            Console.Write("\nPulsa una tecla para finalizar...");
+            Console.ReadKey();
         }
 
+        private static void ProcesarTrabajador(Trabajador trabajador)
+        {
+            trabajador.ProcesarPedidos();
+            trabajador.ProcesarTareas();
 
-        //private static int CalcularPrecio(Freelance pFreelance)
-        //{
-        //    return pFreelance.Dias * pFreelance.Precio;
-        //}
+            Console.WriteLine(trabajador.NombreCompleto + ": " + trabajador.CalcularPrecio());
+        }
     }
-
-
 }

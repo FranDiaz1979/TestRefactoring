@@ -1,41 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestRefactoring
+﻿namespace TestRefactoring
 {
-    class Freelance : ITrabajador
+    class Freelance : Trabajador, ITrabajador
     {
-        public string Nombre { get; set; }
-
-        public string Apellido { get; set; }
-
-        public string NombreCompleto { get; set; }
-
-        public int Dias { get; set; }
-
-        public int Precio { get; set; }
-
-        public DateTime FechaNacimiento { get; set; }
-
-
-        public void ProcesarTareas()
+        override public void ProcesarTareas()
         {
             //Código
         }
 
-        public void ProcesarPedidos()
+        override public void ProcesarPedidos()
         {
             //Código
         }
 
-        public void ProcesarVacaciones()
+        override public void ProcesarVacaciones()
         {
             //Código
-        }
-        public int CalcularPrecio()
-        {
-            return Dias * Precio;
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestRefactoring
+﻿namespace TestRefactoring
 {
+    using System;
+
     interface ITrabajador
     {
         public string Nombre { get; set; }
