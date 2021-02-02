@@ -18,20 +18,13 @@ namespace TestRefactoring
 
         public DateTime FechaNacimiento { get; set; }
 
+        public void ProcesarTareas();
 
-        public void ProcesarTareas()
-        {
-            //Código
-        }
+        public void ProcesarPedidos();
 
-        public void ProcesarPedidos()
-        {
-            //Código
-        }
+        public void ProcesarVacaciones();
 
-        public void ProcesarVacaciones()
-        {
-            //Código
-        }
+        public int CalcularPrecio();
+
     }
 }

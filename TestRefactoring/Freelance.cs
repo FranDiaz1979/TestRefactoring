@@ -33,5 +33,9 @@ namespace TestRefactoring
         {
             //Código
         }
+        public int CalcularPrecio()
+        {
+            return Dias * Precio;
+        }
     }
 }

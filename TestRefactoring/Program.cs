@@ -26,44 +26,44 @@ namespace TestRefactoring
 
         static void Main(string[] args)
         {
-            Empleado claseA = new Empleado();
-            claseA.Nombre = "Carlos";
-            claseA.Apellido = "Rodriguez";
-            claseA.Comentarios = "Habla inglés perfecto";
-            claseA.NombreCompleto = "Carlos" + " " + "Rodriguez";
-            claseA.Dias = 5;
-            claseA.Precio = 25;
+            Empleado claseA = new Empleado
+            {
+                Nombre = "Carlos",
+                Apellido = "Rodriguez",
+                Comentarios = "Habla inglés perfecto",
+                NombreCompleto = "Carlos" + " " + "Rodriguez",
+                Dias = 5,
+                Precio = 25
+            };
 
             claseA.ProcesarPedidos();
             claseA.ProcesarTareas();
 
-            Console.WriteLine(claseA.NombreCompleto + ":" + CalcularPrecio(claseA));
+            Console.WriteLine(claseA.NombreCompleto + ": " + claseA.CalcularPrecio());
 
-            Freelance claseB = new Freelance();
-            claseB.Nombre = "Juan";
-            claseB.Apellido = "Pérez";
-            claseB.NombreCompleto = "Juan" + " " + "Pérez";
-            claseB.Dias = 10;
-            claseB.Precio = 50;
-            claseB.FechaNacimiento = new DateTime(1987, 7, 1);
+            Freelance claseB = new Freelance
+            {
+                Nombre = "Juan",
+                Apellido = "Pérez",
+                NombreCompleto = "Juan" + " " + "Pérez",
+                Dias = 10,
+                Precio = 50,
+                FechaNacimiento = new DateTime(1987, 7, 1)
+            };
 
             claseB.ProcesarPedidos();
             claseB.ProcesarTareas();
 
-            Console.WriteLine(claseA.NombreCompleto + ": " + CalcularPrecio(claseB));
+            Console.WriteLine(claseA.NombreCompleto + ": " + claseB.CalcularPrecio());
 
             Console.ReadLine();
         }
 
-        private static int CalcularPrecio(Empleado pEmpleado)
-        {
-            return pEmpleado.Dias * pEmpleado.Precio;
-        }
 
-        private static int CalcularPrecio(Freelance pFreelance)
-        {
-            return pFreelance.Dias * pFreelance.Precio;
-        }
+        //private static int CalcularPrecio(Freelance pFreelance)
+        //{
+        //    return pFreelance.Dias * pFreelance.Precio;
+        //}
     }
 
 
