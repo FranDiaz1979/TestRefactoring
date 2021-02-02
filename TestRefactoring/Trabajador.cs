@@ -6,8 +6,7 @@
     {
         private string apellido;
         private string nombre;
-        private int dias;
-        private int precio;
+        private TareaFacturable tarea;
         private DateTime fechaNacimiento;
 
         public string Nombre { get => nombre; set => nombre = value; }
@@ -16,9 +15,7 @@
 
         public string NombreCompleto { get => nombre + " " + apellido; }
 
-        public int Dias { get => dias; set => dias = value; }
-
-        public int Precio { get => precio; set => precio = value; }
+        public TareaFacturable Tarea { get => tarea; set => tarea = value; }
 
         public DateTime FechaNacimiento { get => fechaNacimiento; set => fechaNacimiento = value; }
 
@@ -36,11 +33,5 @@
         {
             //Código
         }
-
-        public int CalcularPrecio()
-        {
-            return Dias * Precio;
-        }
-
     }
 }

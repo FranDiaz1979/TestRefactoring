@@ -10,9 +10,7 @@
 
         public string NombreCompleto { get; }
 
-        public int Dias { get; set; }
-
-        public int Precio { get; set; }
+        public TareaFacturable Tarea { get; set; }
 
         public DateTime FechaNacimiento { get; set; }
 
@@ -21,8 +19,5 @@
         public void ProcesarPedidos();
 
         public void ProcesarVacaciones();
-
-        public int CalcularPrecio();
-
     }
 }

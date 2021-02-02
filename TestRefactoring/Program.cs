@@ -22,9 +22,9 @@
         Los metodos de la clase: ¿Dentro del "dominio" o fuera con algun patron? (Prefiero dentro del dominio)
         Calcular precio de la misma forma que los otros metodos de la clase
         Clean Code: agregar metodo ProcesarTrabajador: Si se metiese en la clase, el console.Writeline iria fuera y se deberia guardar el objeto
+        Dias y precio es un data clump con un metodo: calcularPrecio
 
         TODO:
-        Dias y precio es un data clump con un metodo: calcularPrecio
         */
 
         static void Main()
@@ -34,17 +34,22 @@
                 Nombre = "Carlos",
                 Apellido = "Rodriguez",
                 Comentarios = "Habla inglés perfecto",
-                Dias = 5,
-                Precio = 25
+                Tarea = new TareaFacturable {
+                    Dias = 5,
+                    Precio = 25,
+                }                
             });
 
             ProcesarTrabajador(new Freelance
             {
                 Nombre = "Juan",
                 Apellido = "Pérez",
-                Dias = 10,
-                Precio = 50,
-                FechaNacimiento = new DateTime(1987, 7, 1)
+                Tarea = new TareaFacturable
+                {
+                    Dias = 10,
+                    Precio = 50,
+                },
+                FechaNacimiento = new DateTime(1987, 7, 1),
             });
 
             Console.Write("\nPulsa una tecla para finalizar...");
@@ -56,7 +61,7 @@
             trabajador.ProcesarPedidos();
             trabajador.ProcesarTareas();
 
-            Console.WriteLine(trabajador.NombreCompleto + ": " + trabajador.CalcularPrecio());
+            Console.WriteLine(trabajador.NombreCompleto + ": " + trabajador.Tarea.Total);
         }
     }
 }
