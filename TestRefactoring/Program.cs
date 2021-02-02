@@ -5,11 +5,23 @@ namespace TestRefactoring
     class Program
     {
         /*
-            1) PRUEBA .NET:
-            Consigna: Optimizar el código lo máximo posible.
-            Todo lo que se vea que se puede optimizar, hacerlo.
-            Todos los cambios quedan a criterio del programador y se aceptan todo tipo de cambios.
+        1) PRUEBA .NET:
+        Consigna: Optimizar el código lo máximo posible.
+        Todo lo que se vea que se puede optimizar, hacerlo.
+        Todos los cambios quedan a criterio del programador y se aceptan todo tipo de cambios.
 			
+
+        HECHO:
+        Crear solucion tipo consola
+        substituir el main del proyecto por el del test
+        Agregar un repositorio git local
+
+        TODO:
+        Refactorizar: 1 Interface comun para los 2 ¿ITrabajador?
+        Llevar las clases a sus archivos
+        Encapsular las propiedades
+        Los metodos de la clase: ¿Dentro del "dominio" o fuera con algun patron? (Prefiero dentro del dominio)
+        Calcular precio de la misma forma que los otros metodos de la clase
         */
 
         static void Main(string[] args)
@@ -38,7 +50,7 @@ namespace TestRefactoring
             claseB.ProcesarPedidos();
             claseB.ProcesarTareas();
 
-            Console.WriteLine(claseA.NombreCompleto + ":" + CalcularPrecio(claseB));
+            Console.WriteLine(claseA.NombreCompleto + ": " + CalcularPrecio(claseB));
 
             Console.ReadLine();
         }
@@ -54,67 +66,5 @@ namespace TestRefactoring
         }
     }
 
-    class Empleado
-    {
-        public string Nombre { get; set; }
 
-        public string Apellido { get; set; }
-
-        public string NombreCompleto { get; set; }
-
-        public int Dias { get; set; }
-
-        public int Precio { get; set; }
-
-        public DateTime FechaNacimiento { get; set; }
-
-        public string Comentarios { get; set; }
-
-
-        public void ProcesarTareas()
-        {
-            //Código
-        }
-
-        public void ProcesarPedidos()
-        {
-            //Código
-        }
-
-        public void ProcesarVacaciones()
-        {
-            //Código
-        }
-    }
-
-    class Freelance
-    {
-        public string Nombre { get; set; }
-
-        public string Apellido { get; set; }
-
-        public string NombreCompleto { get; set; }
-
-        public int Dias { get; set; }
-
-        public int Precio { get; set; }
-
-        public DateTime FechaNacimiento { get; set; }
-
-
-        public void ProcesarTareas()
-        {
-            //Código
-        }
-
-        public void ProcesarPedidos()
-        {
-            //Código
-        }
-
-        public void ProcesarVacaciones()
-        {
-            //Código
-        }
-    }
 }
