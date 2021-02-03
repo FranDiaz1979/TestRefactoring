@@ -1,8 +1,6 @@
 ﻿namespace TestRefactoring.BusinessLogic
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using System.Threading;
 
     public class TrabajadorService : ITrabajadorService
     {
@@ -23,15 +21,13 @@
 
         public void ProcesarTrabajador(ITrabajador trabajador)
         {
-            ProcesarPedidos(trabajador);
-            ProcesarTareas(trabajador);
+            new Thread(() => this.ProcesarPedidos(trabajador)).Start();
+            new Thread(() => this.ProcesarTareas(trabajador)).Start();
         }
 
         public double CalcularPrecio(TareaFacturable tarea)
         {
-            return tarea.Dias * tarea.Precio; 
+            return tarea.Dias * tarea.Precio;
         }
-
     }
 }
-

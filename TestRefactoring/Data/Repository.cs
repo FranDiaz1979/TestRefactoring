@@ -1,12 +1,12 @@
-﻿using System.Linq;
-
-namespace TestRefactoring.Data
+﻿namespace TestRefactoring.Data
 {
-    class Repository<T> : IRepository<T> where T : class 
+    using System.Linq;
+
+    internal class Repository<T> : IRepository<T> where T : class
     {
         public void Add(T entity)
         {
-            //DBContext.Set<T>.Add(entity);
+            // DBContext.Set<T>.Add(entity);
             throw new System.NotImplementedException();
         }
 
@@ -24,7 +24,7 @@ namespace TestRefactoring.Data
 
         public void Update(T entity)
         {
-            //DBContext.Set<T>.Update(entity);
+            // DBContext.Set<T>.Update(entity);
             throw new System.NotImplementedException();
         }
     }

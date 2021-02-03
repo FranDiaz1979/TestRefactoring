@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestRefactoring.Data
+﻿namespace TestRefactoring.Data
 {
-    class EmpleadoRepository : Repository<Empleado>
+    internal class EmpleadoRepository : Repository<Empleado>
     {
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TestRefactoring.Data
+﻿namespace TestRefactoring.Data
 {
-    class FreelanceRepository : Repository<Freelance>
+    internal class FreelanceRepository : Repository<Freelance>
     {
     }
 }
