@@ -3,6 +3,7 @@
     using System;
     using System.Threading.Tasks;
     using TestRefactoring.BusinessLogic;
+    using Unity;
 
     internal class Program
     {
@@ -30,10 +31,14 @@
         Multithreading, ya que está permitido y hay casos para aplicarlo.
         */
 
+        private static ITrabajadorService trabajadorService;
+
         private static void Main()
         {
+            GetDependencyInstances();
+
             Task task1 = new Task(() => ProcesarTrabajador(
-                new TrabajadorService(),
+                trabajadorService,
                 new Empleado
                 {
                     Nombre = "Carlos",
@@ -48,7 +53,7 @@
             task1.Start();
 
             Task task2 = new Task(() => ProcesarTrabajador(
-                new TrabajadorService(),
+                trabajadorService,
                 new Freelance
                 {
                     Nombre = "Juan",
@@ -67,6 +72,12 @@
 
             Console.Write("\nPulsa una tecla para finalizar...");
             Console.ReadKey();
+        }
+
+        private static void GetDependencyInstances()
+        {
+            var container = UnityConfig.Register();
+            trabajadorService = container.Resolve<ITrabajadorService>();
         }
 
         private static void ProcesarTrabajador(ITrabajadorService trabajadorService, ITrabajador trabajador)
