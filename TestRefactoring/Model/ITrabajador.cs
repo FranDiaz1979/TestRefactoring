@@ -2,8 +2,10 @@
 {
     using System;
 
-    internal interface ITrabajador
+    public interface ITrabajador
     {
+        public int Id { get; set; }
+
         public string Nombre { get; set; }
 
         public string Apellido { get; set; }
@@ -13,11 +15,5 @@
         public TareaFacturable Tarea { get; set; }
 
         public DateTime FechaNacimiento { get; set; }
-
-        public void ProcesarTareas();
-
-        public void ProcesarPedidos();
-
-        public void ProcesarVacaciones();
     }
 }

@@ -1,13 +1,14 @@
 ﻿namespace TestRefactoring
 {
     using System;
+    using TestRefactoring.BusinessLogic;
 
     internal class Program
     {
         /*
         1) PRUEBA .NET:
         Consigna: Optimizar el código lo máximo posible.
-        Todo lo que se vea que se puede optimizar, hacerlo.
+        Lo que se vea que se puede optimizar, hacerlo.
         Todos los cambios quedan a criterio del programador y se aceptan todo tipo de cambios.
 
         HECHO:
@@ -22,23 +23,32 @@
         Calcular precio de la misma forma que los otros metodos de la clase
         Clean Code: agregar metodo ProcesarTrabajador: Si se metiese en la clase, el console.Writeline iria fuera y se deberia guardar el objeto
         Dias y precio es un data clump con un metodo: calcularPrecio
+
+        TODO: Evitar el código duplicado, usando buenas prácticas de programación orientada a objetos, que es fundamental para nuestros nuevos desarrollos.
+        TODO: Separación de capas y uso correspondiente de cada función en cada capa.
+        TODO: Evitar declaraciones innecesarias (variables privadas).
+
+        TO DO:
+        TODO: Multithreading, ya que está permitido y hay casos para aplicarlo.
         */
 
         private static void Main()
         {
-            ProcesarTrabajador(new Empleado
+            var trabajadorService = new TrabajadorService();
+
+            ProcesarTrabajador(trabajadorService, new Empleado
             {
                 Nombre = "Carlos",
                 Apellido = "Rodriguez",
                 Comentarios = "Habla inglés perfecto",
                 Tarea = new TareaFacturable
-                {
+                { 
                     Dias = 5,
                     Precio = 25,
                 }
             });
 
-            ProcesarTrabajador(new Freelance
+            ProcesarTrabajador(trabajadorService, new Freelance
             {
                 Nombre = "Juan",
                 Apellido = "Pérez",
@@ -54,12 +64,11 @@
             Console.ReadKey();
         }
 
-        private static void ProcesarTrabajador(Trabajador trabajador)
+        private static void ProcesarTrabajador(ITrabajadorService trabajadorService, ITrabajador trabajador)
         {
-            trabajador.ProcesarPedidos();
-            trabajador.ProcesarTareas();
+            trabajadorService.ProcesarTrabajador(trabajador);
 
-            Console.WriteLine(trabajador.NombreCompleto + ": " + trabajador.Tarea.Total);
+            Console.WriteLine(trabajador.NombreCompleto + ": " + trabajadorService.CalcularPrecio(trabajador.Tarea));
         }
     }
 }
